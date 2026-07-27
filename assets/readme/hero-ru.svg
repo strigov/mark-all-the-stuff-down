@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">mark-all-the-stuff-down</title>
+  <desc id="desc">Скилл для OCR документов в Cowork: превращает русские и английские сканы, PDF, изображения и офисные файлы в Markdown.</desc>
+
+  <rect width="1200" height="420" rx="28" fill="#0B0D10"/>
+  <path d="M56 64h40M56 64v40M650 64h-40M650 64v40M56 356h40M56 356v-40M650 356h-40M650 356v-40"
+        fill="none" stroke="#2A313B" stroke-width="2"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="58" y="78" fill="#73E2A7" font-size="18" font-weight="700" letter-spacing="2">COWORK · ЛОКАЛЬНЫЙ OCR ДОКУМЕНТОВ</text>
+    <text x="56" y="165" fill="#F4F0E8" font-size="59" font-weight="760">mark-all-the</text>
+    <text x="56" y="226" fill="#F4F0E8" font-size="59" font-weight="760">stuff-down</text>
+    <text x="58" y="282" fill="#A6B1C2" font-size="25">Русский + английский OCR для файлов,</text>
+    <text x="58" y="316" fill="#A6B1C2" font-size="25">которые Cowork сам прочитать не может.</text>
+  </g>
+
+  <g transform="translate(705 58)">
+    <path d="M0 0h386a24 24 0 0 1 24 24v256a24 24 0 0 1-24 24H0a24 24 0 0 1-24-24V24A24 24 0 0 1 0 0Z"
+          fill="#12161C" stroke="#2A313B" stroke-width="2"/>
+
+    <g transform="translate(28 30)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <text x="0" y="19" fill="#A6B1C2" font-size="18">01 / ВХОД</text>
+      <g transform="translate(0 40)">
+        <path d="M0 10a10 10 0 0 1 10-10h94l36 36v142a10 10 0 0 1-10 10H10a10 10 0 0 1-10-10Z"
+              fill="#F4F0E8"/>
+        <path d="M104 0v36h36" fill="#D8D3CA"/>
+        <text x="18" y="66" fill="#0B0D10" font-size="23" font-weight="700">СКАН.PDF</text>
+        <rect x="18" y="86" width="92" height="10" rx="5" fill="#A6B1C2"/>
+        <rect x="18" y="108" width="74" height="10" rx="5" fill="#A6B1C2"/>
+        <rect x="18" y="130" width="98" height="10" rx="5" fill="#A6B1C2"/>
+        <path d="M10 72v-16h16M130 72v-16h-16M10 156v16h16M130 156v16h-16"
+              fill="none" stroke="#73E2A7" stroke-width="3"/>
+      </g>
+
+      <g transform="translate(157 102)">
+        <path d="M0 20h50" stroke="#73E2A7" stroke-width="3"/>
+        <path d="m43 12 9 8-9 8" fill="none" stroke="#73E2A7" stroke-width="3"/>
+        <rect x="0" y="43" width="50" height="30" rx="15" fill="#183B2A"/>
+        <text x="11" y="64" fill="#73E2A7" font-size="17" font-weight="700">RU</text>
+        <rect x="0" y="82" width="50" height="30" rx="15" fill="#202833"/>
+        <text x="11" y="103" fill="#A6B1C2" font-size="17" font-weight="700">EN</text>
+      </g>
+
+      <text x="230" y="19" fill="#A6B1C2" font-size="18">02 / ВЫХОД</text>
+      <g transform="translate(230 40)">
+        <rect width="132" height="188" rx="10" fill="#171D25" stroke="#3B4654" stroke-width="2"/>
+        <text x="18" y="38" fill="#73E2A7" font-size="24" font-weight="700">.md</text>
+        <text x="18" y="73" fill="#F4F0E8" font-size="17"># Договор</text>
+        <rect x="18" y="92" width="92" height="8" rx="4" fill="#6D7887"/>
+        <rect x="18" y="111" width="74" height="8" rx="4" fill="#6D7887"/>
+        <rect x="18" y="143" width="98" height="8" rx="4" fill="#3B4654"/>
+        <rect x="18" y="162" width="64" height="8" rx="4" fill="#3B4654"/>
+      </g>
+      <text x="0" y="270" fill="#73E2A7" font-size="18">rus+eng → Markdown с поиском</text>
+    </g>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17">
+    <text x="58" y="380" fill="#6D7887">PDF · DOCX · XLSX · PPTX · ИЗОБРАЖЕНИЯ</text>
+    <text x="500" y="380" fill="#6D7887">→ MARKDOWN</text>
+  </g>
+</svg>
