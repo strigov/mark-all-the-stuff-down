@@ -66,6 +66,10 @@ def _run_tesseract_tsv(exe: str, input_path: Path) -> str:
             ],
             capture_output=True,
             text=True,
+            # tesseract emits UTF-8; the locale codec (cp1251 on Russian
+            # Windows) cannot decode Cyrillic and the page comes out empty.
+            encoding="utf-8",
+            errors="replace",
             check=False,
         )
     except OSError as e:
@@ -207,6 +211,8 @@ def convert_pdf_scanned(src: Path, total_pages: int) -> tuple[str, str]:
                     ],
                     capture_output=True,
                     text=True,
+                    encoding="utf-8",
+                    errors="replace",
                     check=False,
                 )
             except OSError as e:

@@ -122,6 +122,32 @@ def test_convert_image_low_confidence_warns_once(tmp_path, monkeypatch, capsys):
     assert capsys.readouterr().err == "WARN ocr-low-confidence: conf=55\n"
 
 
+def test_run_tesseract_tsv_decodes_utf8_regardless_of_locale(tmp_path, monkeypatch):
+    """tesseract writes TSV as UTF-8. Decoding it with the locale encoding
+    (cp1251 on Russian Windows) fails on Cyrillic: "И" is b"\\xd0\\x98" and
+    0x98 is undefined in cp1251, so the page came out empty with conf=0."""
+    import subprocess
+
+    import ocr
+
+    raw = _single_word_tsv("ПРЕТЕНЗИЯ", 96).encode("utf-8")
+
+    def fake_run(args, **kwargs):
+        # Mimic subprocess text mode on a cp1251 locale: without an explicit
+        # encoding the output is decoded with the locale codec.
+        encoding = kwargs.get("encoding") or "cp1251"
+        stdout = raw.decode(encoding, kwargs.get("errors") or "strict")
+        return subprocess.CompletedProcess(args, 0, stdout, "")
+
+    monkeypatch.setattr(ocr.subprocess, "run", fake_run)
+
+    tsv = ocr._run_tesseract_tsv("/fake/tesseract", tmp_path / "page.png")
+    text, conf, words = ocr._parse_tsv_page(tsv)
+
+    assert text == "ПРЕТЕНЗИЯ"
+    assert (conf, words) == (96.0, 1)
+
+
 def test_convert_pdf_scanned_formats_pages_and_removes_pgm(tmp_path, monkeypatch):
     import subprocess
 
@@ -133,7 +159,8 @@ def test_convert_pdf_scanned_formats_pages_and_removes_pgm(tmp_path, monkeypatch
     def fake_which(name):
         return f"/fake/{name}"
 
-    def fake_run(args, capture_output, text, check):
+    def fake_run(args, capture_output, text, check, encoding, errors):
+        assert (encoding, errors) == ("utf-8", "replace")
         pdftoppm_calls.append(args)
         stem = Path(args[-1])
         page = args[args.index("-f") + 1]
